@@ -1,0 +1,145 @@
+/* Tooltip container */
+.info-tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.info-tooltip .info-tooltiptext {
+    visibility: hidden;
+    width: 700px;
+    background-color: #555;
+    color: #fff;
+    text-align: left;
+    font-size: 9pt;
+    padding: 15px;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    top: 125%;
+    left: 30%;
+    margin-left: -400px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.info-tooltip:hover .info-tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.info-tooltiptext dl {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.info-tooltiptext dt {
+    font-weight: lighter;
+    font-style: italic;
+}
+
+.info-tooltiptext dt::after {
+    content: ":";
+}
+
+.info-tooltiptext dt::before {
+    content: "- ";
+}
+   
+.info-tooltiptext .kkey {
+    font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.info-tooltiptext .bcol, .info-tooltiptext .bbut {
+    font-style: italic;
+}
+.info-tooltiptext em {
+    color: #ccc;
+    font-style: normal;
+}
+
+.info-tooltiptext a {
+    color: #fff;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#setup-table { 
+    display: inline;
+}
+
+#setup-table hr { 
+    display: inline;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    border-width: 1px;
+}
+
+#mod-date { 
+    display: inline;
+    font-size: 9pt;
+    margin-left: 0.5em;
+} 
+
+
+#bib-table span.bib-block{
+    display: block;
+}
+
+#bib-table span.bibtex-protected, #bib-table span.bib-label, #bib-table span.bib-when, #bib-table span.bib-who{
+    display: inline;
+}
+
+#bib-table a {
+    color: #999;
+}
+
+#bib-table span.bib-what {
+    color: #6B6B6B;
+    margin: 0em;
+    padding: 0em;
+    font-weight: bolder;
+    font-size: normal;
+}
+
+#bib-table span.section-tok {
+    display: inline-block;
+    border-radius: 25px;
+    padding: 2px;
+    width: 30px;
+    background-color: #000;
+    color: #fff;
+}
+
+#bib-table i.patt-t-block, #bib-table i.patt-t-subs {
+    color: #6B6B6B;
+    margin: 2px;
+}
+
+#bib-table span.patt-st-block, #bib-table i.patt-t-block {
+    display: inline-block;
+    border-radius: 2px;
+    padding: 2px;
+    background: repeating-linear-gradient( 33deg, #6B6B6B00, #6B6B6B00 3px, #6B6B6B36 3px, #6B6B6B36 12px );
+}
+
+#bib-table span.patt-st-subs, #bib-table i.patt-t-subs {
+    display: inline-block;
+    border-radius: 2px;
+    padding: 2px;
+    background: repeating-linear-gradient( -33deg, #6B6B6B00, #6B6B6B00 4px, #6B6B6B36 4px, #6B6B6B36 8px );
+}
+
+#bib-table span.talg, #bib-table  span.searchtag-alg {
+ font-variant: small-caps;
+}
+
+#bib-table span.searchtag {
+    text-decoration: underline dotted #000 1px;
+}
