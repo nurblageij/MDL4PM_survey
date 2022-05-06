@@ -489,7 +489,7 @@
     "top_title": "MDL4PM: List of references",
     "top_link": "<a href='https://arxiv.org/abs/2007.14009'>The Minimum Description Length Principle for Pattern Mining: A Survey</a>",
     "info_tooltip_lines": [
-      "<p>The search fields in the column headers allow to <em>filter the contents of the table</em>. For columns where the search field offers a list of search terms, they are applied as a disjuntion (logical OR), unless the '*AND*' option is activated, in which case they are applied as a conjunction. Double-clicking the search field clears the selection. The tag index allows to search for work related to the corresponding algorithm, application or task.</p>",
+      "<p>The search fields in the column headers allow to <em>filter the contents of the table</em>. For columns where the search field offers a list of search terms, they are applied as a disjunction (logical OR), unless the '*AND*' option is activated, in which case they are applied as a conjunction. Double-clicking the search field clears the selection. The tag index allows to search for work related to the corresponding algorithm, application or task.</p>",
       "",
       "<p>In addition to the default initial subset of columns displayed, other <em>preset subsets of columns</em> can be chosen:",
       "<dl>",
