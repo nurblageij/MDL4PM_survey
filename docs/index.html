@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
     <meta charset="UTF-8">
-    <title>MDL4PM: References</title>
+    <title></title>
     
     <script src="https://d3js.org/d3.v5.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/luxon/build/global/luxon.min.js"></script>
@@ -23,7 +23,7 @@
     
     <link rel="stylesheet" href="./libs/bootstrap-icons.css">
     <link rel="stylesheet" href="./libs/tabulator.css">
-     -->
+    -->
     <script src="table_bib.js"></script>
     <link rel="stylesheet" type="text/css" href="table_bib.css">
     <link rel="stylesheet" type="text/css" href="custom.css">
@@ -33,6 +33,7 @@
     
     </head>
     <body onload='loadTable("table_refs.tsv", "cols_bib.json", "#bib-table");'>
+      <div id="top-line"></div>
       <div id="setup-table">
         <select id="choice-tag"></select>
         <input id="input-tag"></input>
@@ -45,6 +46,5 @@
         <button id="csv-subc">Download CSV</button>
         <button id="pdf-subc">Download PDF</button>
       </div>
-      <div id="mod-date"></div>
       <div id="bib-table"></div> 
 </body>

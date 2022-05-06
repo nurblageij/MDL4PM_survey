@@ -1,10 +1,12 @@
 {
   "columns": [
     {
-      "formatter": "rowSelection",
       "width": 60,
+      "minWidth": 60,
+      "maxWidth": 60,
       "hozAlign": "left",
       "headerHozAlign": "left",
+      "formatter": "rowSelection",
       "titleFormatter": "rowSelection",
       "tooltip": "fmt_toolTipRefKey",
       "sorter": "fmt_selectedSort",
@@ -27,18 +29,22 @@
       "columns": [
         {
           "title": "Citation",
-          "field": "citation",
           "titleDownload": "citation",
-          "topCalc": "count",
+          "field": "citation",
           "width": 180,
+          "minWidth": 80,
+          "maxWidth": 250,
           "resizable": true,
-          "headerFilter": "input"
+          "headerFilter": "input",
+          "topCalc": "count"
         },
         {
           "title": "@",
-          "field": "type",
           "titleDownload": "type",
-          "width": 32,
+          "field": "type",
+          "width": 40,
+          "minWidth": 40,
+          "maxWidth": 40,
           "hozAlign": "center",
           "tooltip": "fmt_toolTipBibString",
           "formatter": "fmt_formatterPrep",
@@ -70,64 +76,34 @@
               "misc": "O"
             }
           },
-          "headerFilter": "select",
-          "headerFilterParams": {
-            "values": {
-              "article": "article",
-              "inproceedings": "inproceedings",
-              "incollection": "incollection",
-              "phdthesis": "phdthesis",
-              "mastersthesis": "mastersthesis",
-              "arxiv": "arxiv",
-              "report": "report",
-              "misc": "misc",
-              "thesis": "thesis",
-              "cj": "conf/journal",
-              "pr": "peer-reviewed",
-              "nr": "no peer-review"
+            "headerFilter": "fmt_custSelectFilterEditor",
+            "headerFilterParams": {
+                "simple": true
+            },
+            "headerFilterFunc": "fmt_multiInFilterFunction",
+            "headerFilterFuncParams": {
+                "simple": true
             }
-          },
-          "headerFilterFunc": "fmt_mapFilterFunction",
-          "headerFilterFuncParams": {
-            "options": {
-              "thesis": [
-                "thesis",
-                "phdthesis",
-                "mastersthesis"
-              ],
-              "cj": [
-                "article",
-                "inproceedings"
-              ],
-              "pr": [
-                "article",
-                "inproceedings",
-                "incollection",
-                "thesis"
-              ],
-              "nr": [
-                "arxiv",
-                "report",
-                "misc"
-              ]
-            }
-          }
         },
         {
           "title": "Authors",
-          "field": "authors",
           "titleDownload": "authors",
+          "field": "authors",
           "width": 180,
+          "minWidth": 80,
+          "maxWidth": 300,
           "resizable": true,
           "headerFilter": "input",
           "visible": false
         },
         {
           "title": "Year",
-          "field": "year",
           "titleDownload": "year",
-          "hozAlign": "center",
+          "field": "year",
           "width": 120,
+          "minWidth": 80,
+          "maxWidth": 120,
+          "hozAlign": "center",
           "sorter": "number",
           "headerFilter": "fmt_minMaxFilterEditor",
           "headerFilterFunc": "fmt_minMaxFilterFunction",
@@ -135,9 +111,11 @@
         },
         {
           "title": "Title",
-          "field": "title",
           "titleDownload": "title",
-          "width": 200,
+          "field": "title",
+          "width": 180,
+          "minWidth": 80,
+          "maxWidth": 300,
           "resizable": true,
           "formatter": "fmt_formatterPrep",
           "formatterParams": {
@@ -150,9 +128,11 @@
         {
           "title": "Links",
           "field": "links",
-          "width": 300,
-          "resizable": true,
           "titleDownload": "links",
+          "width": 100,
+          "minWidth": 80,
+          "maxWidth": 200,
+          "resizable": true,
           "formatter": "html",
           "headerFilter": "input",
           "visible": false,
@@ -161,10 +141,14 @@
         },
         {
           "title": "Full reference",
-          "field": "html_ref",
-          "resizable": true,
           "titleDownload": "html_ref",
+          "field": "html_ref",
+          "width": 700,
+          "minWidth": 80,
+          "maxWidth": 750,
+          "resizable": true,
           "formatter": "html",
+          "accessorDownload": "fmt_accessorStripHtml",
           "headerFilter": "input",
           "visible": false,
           "clipboard": false,
@@ -172,10 +156,16 @@
         },
         {
           "title": "Bibtex string",
-          "field": "bib_string",
-          "resizable": true,
           "titleDownload": "bib_string",
-          "formatter": "textarea",
+          "field": "bib_string",
+          "width": 700,
+          "minWidth": 80,
+          "maxWidth": 750,
+          "resizable": true,
+          "formatter": "fmt_formatterCustTxtarea",
+          "formatterParams": {
+            "class": "area-pre"
+          },
           "headerFilter": "input",
           "visible": false,
           "clipboard": false,
@@ -183,8 +173,12 @@
         },
         {
           "title": "Ref key",
-          "field": "ref_key",
           "titleDownload": "ref_key",
+          "field": "ref_key",
+          "width": 100,
+          "minWidth": 80,
+          "maxWidth": 300,
+          "resizable": true,
           "headerFilter": "input",
           "visible": false,
           "clipboard": false,
@@ -208,33 +202,48 @@
       "columns": [
         {
           "title": "Sec.",
-          "field": "sec",
           "titleDownload": "sec",
+          "field": "sec",
+          "width": 70,
+          "minWidth": 70,
+          "maxWidth": 70,
           "hozAlign": "center",
           "formatter": "fmt_formatterPrep",
           "formatterParams": {
             "class": "section-tok"
           },
-          "headerFilter": "select",
-          "headerFilterParams": {
-            "values": true,
-            "multiselect": true
-          },
-          "headerFilterFunc": "in"
+            "headerFilter": "fmt_custSelectFilterEditor",
+            "headerFilterParams": {
+                "conj": false,
+                "sep": ".",
+                "first_only": true,
+                "with_full": true,
+                "show_counts": false
+                
+            },
+            "headerFilterFunc": "fmt_multiInFilterFunction",
+            "headerFilterFuncParams": {
+                "conj": false,
+                "sep": ".",
+                "first_only": true,
+                "with_full": true
+            }
         },
         {
           "title": "...",
-          "field": "mentions",
           "titleDownload": "mentions",
-          "hozAlign": "left",
-          "width": 60,
+          "field": "mentions",
+          "width": 100,
+          "minWidth": 80,
+          "maxWidth": 200,
           "resizable": true,
           "headerFilter": "input",
           "headerFilterFunc": "regex",
           "formatter": "fmt_formatterMentionLinks",
           "formatterParams": {
             "base_url": "./doc.pdf"
-          }
+          },
+          "accessorDownload": "fmt_accessorMentionLinks"
         }
       ]
     },
@@ -254,9 +263,11 @@
       "columns": [
         {
           "title": "",
-          "field": "data_type",
           "titleDownload": "data_type",
-          "width": 32,
+          "field": "data_type",
+          "width": 35,
+          "minWidth": 35,
+          "maxWidth": 35,
           "hozAlign": "center",
           "formatter": "fmt_formatterPrep",
           "formatterParams": {
@@ -272,19 +283,23 @@
               "temporal": "#CC6677"
             }
           },
-          "headerFilter": "select",
+          "headerFilter": "fmt_custSelectFilterEditor",
           "headerFilterParams": {
-            "values": true,
-            "multiselect": true
+                "simple": true
           },
-          "headerFilterFunc": "in"
+          "headerFilterFunc": "fmt_multiInFilterFunction",
+          "headerFilterFuncParams": {
+                "simple": true
+          }
         },
         {
           "title": "...",
-          "field": "data_subtype",
           "titleDownload": "data_subtype",
-          "hozAlign": "left",
-          "width": 90,
+          "field": "data_subtype",
+          "width": 100,
+          "minWidth": 80,
+          "maxWidth": 200,
+          "resizable": true,
           "formatter": "fmt_formatterPrepAlt",
           "formatterParams": {
             "alt": "data_type",
@@ -294,12 +309,8 @@
               "temporal": "#CC6677"
             }
           },
-          "headerFilter": "select",
-          "headerFilterParams": {
-            "values": true,
-            "multiselect": true
-          },
-          "headerFilterFunc": "in"
+            "headerFilter": "fmt_custSelectFilterEditor",
+            "headerFilterFunc": "fmt_multiInFilterFunction"
         }
       ]
     },
@@ -319,9 +330,11 @@
       "columns": [
         {
           "title": "",
-          "field": "pattern_type",
           "titleDownload": "pattern_type",
-          "width": 32,
+          "field": "pattern_type",
+          "width": 35,
+          "minWidth": 35,
+          "maxWidth": 35,
           "hozAlign": "center",
           "formatter": "fmt_formatterPrep",
           "formatterParams": {
@@ -335,19 +348,22 @@
               "substructure": "patt-t-subs"
             }
           },
-          "headerFilter": "select",
+          "headerFilter": "fmt_custSelectFilterEditor",
           "headerFilterParams": {
-            "values": true,
-            "multiselect": true
+                "simple": true
           },
-          "headerFilterFunc": "in"
+          "headerFilterFunc": "fmt_multiInFilterFunction",
+          "headerFilterFuncParams": {
+                "simple": true
+          }
         },
         {
           "title": "...",
-          "field": "pattern_subtype",
           "titleDownload": "pattern_subtype",
-          "hozAlign": "left",
-          "width": 90,
+          "field": "pattern_subtype",
+          "width": 100,
+          "minWidth": 80,
+          "maxWidth": 200,
           "resizable": true,
           "formatter": "fmt_formatterPrepAlt",
           "formatterParams": {
@@ -357,12 +373,14 @@
               "substructure": "patt-st-subs"
             }
           },
-          "headerFilter": "select",
-          "headerFilterParams": {
-            "values": true,
-            "multiselect": true
-          },
-          "headerFilterFunc": "in"
+            "headerFilter": "fmt_custSelectFilterEditor",
+            "headerFilterParams": {
+                "sep": " "
+            },
+            "headerFilterFunc": "fmt_multiInFilterFunction",
+            "headerFilterFuncParams": {
+                "sep": " "
+            }
         }
       ]
     },
@@ -382,47 +400,54 @@
       "columns": [
         {
           "title": "Alg. name",
-          "field": "alg_name",
           "titleDownload": "alg_name",
-          "hozAlign": "left",
-          "width": 75,
+          "field": "alg_name",
+          "width": 100,
+          "minWidth": 80,
+          "maxWidth": 200,
           "resizable": true,
           "headerFilter": "input",
           "tooltip": "fmt_toolTipStripTags",
           "formatter": "fmt_formatterTags",
           "formatterParams": {
             "tclass": "talg"
-            }
+            },
+          "accessorDownload": "fmt_accessorStripTags"
         },
         {
           "title": "Algorithm",
-          "field": "algorithm",
           "titleDownload": "algorithm",
-          "hozAlign": "left",
-          "width": 75,
+          "field": "algorithm",
+          "width": 100,
+          "minWidth": 80,
+          "maxWidth": 300,
           "resizable": true,
           "headerFilter": "input",
           "tooltip": "fmt_toolTipStripTags",
           "formatter": "fmt_formatterTags",
           "formatterParams": {
             "onclickFnct": "clickSearchTag"
-            }
+            },
+          "accessorDownload": "fmt_accessorStripTags"
         },
         {
           "title": "Encoding",
-          "field": "encoding",
           "titleDownload": "encoding",
-          "hozAlign": "left",
-          "width": 75,
+          "field": "encoding",
+          "width": 100,
+          "minWidth": 80,
+          "maxWidth": 200,
           "resizable": true,
-          "headerFilter": "input"
+          "headerFilter": "fmt_custSelectFilterEditor",
+          "headerFilterFunc": "fmt_multiInFilterFunction"
         },
         {
-          "title": "...",
-          "field": "notes",
+          "title": "Notes",
           "titleDownload": "notes",
-          "hozAlign": "left",
-          "width": 125,
+          "field": "notes",
+          "width": 100,
+          "minWidth": 80,
+          "maxWidth": 400,
           "resizable": true,
           "headerFilter": "input",
           "tooltip": "fmt_toolTipStripTags",
@@ -430,7 +455,8 @@
           "formatterParams": {
               "onclickFnct": "clickSearchTag",
               "collect": true
-            }
+            },
+          "accessorDownload": "fmt_accessorStripTags"
         }
       ]
     }
@@ -460,8 +486,11 @@
     "tooltip": true
   },
   "custom_params": {
+    "top_title": "MDL4PM: List of references",
+    "top_link": "<a href='https://arxiv.org/abs/2007.14009'>The Minimum Description Length Principle for Pattern Mining: A Survey</a>",
     "info_tooltip_lines": [
-      "List of references from <a href='https://arxiv.org/abs/2007.14009'>The Minimum Description Length Principle for Pattern Mining: A Survey</a>",
+      "<p>The search fields in the column headers allow to <em>filter the contents of the table</em>. For columns where the search field offers a list of search terms, they are applied as a disjuntion (logical OR), unless the '*AND*' option is activated, in which case they are applied as a conjunction. Double-clicking the search field clears the selection. The tag index allows to search for work related to the corresponding algorithm, application or task.</p>",
+      "",
       "<p>In addition to the default initial subset of columns displayed, other <em>preset subsets of columns</em> can be chosen:",
       "<dl>",
       "<dt>all</dt>",
@@ -488,7 +517,10 @@
       "</dl></p>",
       "",
       "<p>A column can be hidden by clicking on any cell in the column while pressing the <span class='kkey'>alt</span> key.<br>",
-      "A row can be (un)selected by clicking on any cell in the row while pressing the <span class='kkey'>ctrl</span> key.</p>"
+      "A row can be (un)selected by clicking on any cell in the row while pressing the <span class='kkey'>ctrl</span> key.</p>",
+      "",
+      "<p>The content of a cell can be (un)wrapped by clicking on it while pressing the <span class='kkey'>shift</span> key.<br>",
+      "Cells from an entire row, column or table, can be (un)wrapped by clicking respectively on the cell from the selection column (left-most), the cell in the count row (cell just below the corresponding column header), or the left-most cell in the count row.</p>"
     ],
     "bib_dbclick": {
       "citation": "citation",

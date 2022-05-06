@@ -20,7 +20,7 @@
     z-index: 1;
     top: 125%;
     left: 30%;
-    margin-left: -400px;
+    margin-left: -15px;
 
     /* Fade in tooltip */
     opacity: 0;
@@ -70,8 +70,10 @@
     text-decoration: none;
 }
 
-#setup-table { 
-    display: inline;
+#top-line, #setup-table { 
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 2px;
 }
 
 #setup-table hr { 
@@ -81,11 +83,52 @@
     border-width: 1px;
 }
 
-#mod-date { 
-    display: inline;
+#setup-table select, #setup-table input, #setup-table button {
+    display: inline-block;
+    margin: 0px;
+    padding: 2px;
+}
+
+#top-line h1 { 
+    font-size: 12pt;
+    display: inline-block;
+    color: #555;
+    padding-top: 0px;
+    padding-right: 5px;
+    padding-bottom: 0px;
+    padding-left: 10px;
+}
+
+/*#top-line .info-tooltip { 
+    font-size: 12pt;
+    display: inline-block;
+    color: #555;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+}*/
+
+#top-line .top-link, #top-line .mod-date {
     font-size: 9pt;
-    margin-left: 0.5em;
+    display: inline-block;
+    color: #555;
+    padding-right: 5px;
+    padding-left: 5px;
 } 
+
+#top-line .top-link a {
+    color: #555;
+    font-style: normal;
+    text-decoration: none;
+}
+
+#top-line .top-link a::before {
+    content: "[";
+}
+#top-line .top-link a::after {
+    content: "]";
+}
 
 
 #bib-table span.bib-block{

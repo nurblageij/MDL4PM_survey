@@ -1,0 +1,39 @@
+html, body {
+  font-family: sans-serif;
+  margin: 0px 25px 0px 25px;
+  padding: 0px;
+  color: #6b6b6b;
+  background-color: #e7e7e7;
+}
+#main {
+  vertical-align: top;
+  padding-top: 50px;
+}
+
+.__tabulator {
+  font-size: 9px;
+}
+
+.tabulator-row .cell-pack {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tabulator-row .cell-unpack {
+  white-space: normal;
+  overflow: clip;
+  text-overflow: ellipsis;
+}
+
+.tabulator-row .area-pre {
+  white-space: pre-wrap;
+}
+
+.tabulator-row .cell-pack .area-pre {
+  white-space: nowrap;
+}
+
+.tabulator-row .cell-unpack .area-pre {
+  white-space: pre-wrap;
+}
