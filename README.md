@@ -1,7 +1,7 @@
 # The Minimum Description Length Principle for Pattern Mining: A Survey
 
 ### Original article:
-*The Minimum Description Length Principle for Pattern Mining: A Survey*. by Esther Galbrun, Data Mining and Knowledge Discovery, to appear.
+Galbrun, E. The minimum description length principle for pattern mining: a survey. Data Min Knowl Disc (2022). [doi: 10.1007/s10618-022-00846-z](https://doi.org/10.1007/s10618-022-00846-z)
 
 Extended manuscript on arXiv: [https://arxiv.org/abs/2007.14009](https://arxiv.org/abs/2007.14009).
 
